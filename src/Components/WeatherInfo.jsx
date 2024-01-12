@@ -18,15 +18,23 @@ const WeatherInfo = () => {
 			if (weather === "Rain") {
 				card.style.backgroundImage =
 					"url(https://media2.giphy.com/media/GuEyvLPXMLhT2/giphy.gif?cid=ecf05e47vjz30omav5v7vqfp6sf9z2ug9eozqqbud2t6nq4x&ep=v1_gifs_search&rid=giphy.gif&ct=g)";
+				card.classList.add("card-background");
 			} else if (weather === "Clouds") {
 				card.style.backgroundImage =
 					"url(https://media1.giphy.com/media/SWlbqGfPURqORorgyu/giphy.gif?cid=ecf05e47pgdkurvu8xslh41sa3wfg0erjq0bor2wwznknjte&ep=v1_gifs_search&rid=giphy.gif&ct=g)";
+				card.classList.add("card-background");
 			} else if (weather === "Clear") {
 				card.style.backgroundImage =
 					"url(https://media3.giphy.com/media/0tLvvglXfGOITSFJSU/giphy.gif?cid=ecf05e475gvk4bsx52s0brmynsecm8cenwcxnpt7kjreh09s&ep=v1_gifs_search&rid=giphy.gif&ct=g)";
+				card.classList.add("card-background");
+			} else if (weather === "Snow") {
+				card.style.backgroundImage =
+					"url(https://media1.giphy.com/media/cNPoJv04YIm9q/giphy.gif?cid=ecf05e47f2nr8ms9rdmcmnw072ihsrde32yljzqzj6sxqjd1&ep=v1_gifs_related&rid=giphy.gif&ct=g)";
+				card.classList.add("card-background");
 			} else {
 				card.style.backgroundImage =
-					"url(https://media0.giphy.com/media/jsm7XMcyeTFJE4vHzO/giphy.gif?cid=ecf05e47yqu35ygxrjxkoxzmymor7l5nko9me39vb7eefxst&ep=v1_gifs_search&rid=giphy.gif&ct=g)";
+					"url(https://media1.giphy.com/media/3oriOaEFmDeLQPCFcQ/giphy.gif?cid=ecf05e47rmr85sxbntsqa57v297txtofm9n6lpts0tpoq1eg&ep=v1_gifs_search&rid=giphy.gif&ct=g)";
+				card.classList.add("card-background");
 			}
 		}
 	};
