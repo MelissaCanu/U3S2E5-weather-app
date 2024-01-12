@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
+import { Card, Col, Row } from "react-bootstrap";
 
-const Forecast = ({ city }) => {
+const Forecast = () => {
+	const { city } = useParams();
 	const [forecastData, setForecastData] = useState(null);
 
 	useEffect(() => {
