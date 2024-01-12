@@ -1,5 +1,13 @@
-import React, { useState } from "react";
-import { Button, Form, FormControl } from "react-bootstrap";
+import React, { useState, useEffect } from "react";
+import {
+	Button,
+	Form,
+	FormControl,
+	Card,
+	Container,
+	Row,
+	Col,
+} from "react-bootstrap";
 
 const WeatherInfo = () => {
 	const [cityName, setCityName] = useState("");
@@ -29,27 +37,57 @@ const WeatherInfo = () => {
 	};
 
 	return (
-		<div>
-			<Form onSubmit={handleSubmit}>
-				<FormControl
-					type="text"
-					placeholder="Enter city name"
-					value={cityName}
-					onChange={(e) => setCityName(e.target.value)}
-					className="mr-sm-2"
-				/>
-				<Button variant="primary" type="submit">
-					Get City Info
-				</Button>
-			</Form>
+		<Container className="vh-100 d-flex align-items-center justify-content-center">
+			<Card
+				style={{
+					width: "18rem",
+					backgroundColor: "#87CEEB",
+					border: "none",
+					boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
+				}}
+			>
+				<Card.Body>
+					<Form onSubmit={handleSubmit}>
+						<Form.Group>
+							<FormControl
+								type="text"
+								placeholder="Enter city name"
+								value={cityName}
+								onChange={(e) => setCityName(e.target.value)}
+								className="mr-sm-2"
+							/>
+							<Button variant="primary" type="submit">
+								Get City Info
+							</Button>
+						</Form.Group>
+					</Form>
 
-			{cityInfo && (
-				<div>
-					<h2>City Information</h2>
-					<p>City: {cityInfo.name}</p>
-				</div>
-			)}
-		</div>
+					{cityInfo && (
+						<div className="mt-4">
+							<h2>City Information</h2>
+							<Card
+								style={{
+									backgroundColor: "rgba(255, 255, 255, 0.8)",
+									border: "none",
+									boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)",
+								}}
+							>
+								<Card.Body>
+									<Card.Title>{cityInfo.name}</Card.Title>
+									<Card.Text>
+										<strong>Main Weather:</strong> {cityInfo.weather[0].main}
+									</Card.Text>
+									<Card.Text>
+										<strong>Description:</strong>{" "}
+										{cityInfo.weather[0].description}
+									</Card.Text>
+								</Card.Body>
+							</Card>
+						</div>
+					)}
+				</Card.Body>
+			</Card>
+		</Container>
 	);
 };
 
