@@ -33,18 +33,9 @@ const Forecast = () => {
 	/*  prendi il giorno della settimana - se ti ricordi come fare */
 
 	const getDayOfWeek = (dateString) => {
-		const weekDays = [
-			"Sunday",
-			"Monday",
-			"Tuesday",
-			"Wednesday",
-			"Thursday",
-			"Friday",
-			"Saturday",
-		];
 		const date = new Date(dateString);
-		const dayIndex = date.getDay();
-		return weekDays[dayIndex];
+		const options = { weekday: "long" }; // Specify 'long' to get the full day name
+		return new Intl.DateTimeFormat("en-US", options).format(date);
 	};
 
 	/* bg image */
