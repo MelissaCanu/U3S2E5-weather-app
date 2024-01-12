@@ -81,6 +81,9 @@ const Forecast = () => {
 										display: "flex",
 										flexDirection: "column",
 										alignItems: "center",
+										justifyContent: "center",
+										height: "300px",
+										width: "300px",
 									}}
 								>
 									<Card.Body className="card-background">

@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Button, Form, FormControl, Card, Container } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
-import Forecast from "./Forecast";
 
 const WeatherInfo = () => {
 	const [cityName, setCityName] = useState("");
@@ -136,7 +135,6 @@ const WeatherInfo = () => {
 					)}
 				</Card.Body>
 			</Card>
-			{/* <Forecast city={cityName} /> */}
 		</div>
 	);
 };
