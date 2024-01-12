@@ -66,8 +66,8 @@ const WeatherInfo = () => {
 	};
 
 	/* naviga verso /forecast quando clicco sul bottone */
-	const handleForecastClick = () => {
-		navigate(`/forecast/${cityName}`);
+	const handleForecastClick = (city) => {
+		navigate(`/forecast/${city}`);
 	};
 
 	return (
@@ -101,7 +101,10 @@ const WeatherInfo = () => {
 							<Button variant="primary" type="submit">
 								Get City Info
 							</Button>
-							<Button variant="secondary" onClick={handleForecastClick}>
+							<Button
+								variant="secondary"
+								onClick={() => handleForecastClick(cityName)}
+							>
 								Get Forecast
 							</Button>
 						</Form.Group>
@@ -133,6 +136,7 @@ const WeatherInfo = () => {
 					)}
 				</Card.Body>
 			</Card>
+			{/* <Forecast city={cityName} /> */}
 		</div>
 	);
 };
