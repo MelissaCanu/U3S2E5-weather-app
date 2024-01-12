@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { Button, Form, FormControl, Card, Container } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
+import Forecast from "./Forecast";
 
 const WeatherInfo = () => {
 	const [cityName, setCityName] = useState("");
 	const [cityInfo, setCityInfo] = useState(null);
+	const navigate = useNavigate();
 
 	useEffect(() => {
 		if (cityInfo) {
@@ -62,6 +65,11 @@ const WeatherInfo = () => {
 		getCityInfo();
 	};
 
+	/* naviga verso /forecast quando clicco sul bottone */
+	const handleForecastClick = () => {
+		navigate(`/forecast/${cityName}`);
+	};
+
 	return (
 		<div
 			className="vh-100 d-flex align-items-center justify-content-center"
@@ -92,6 +100,9 @@ const WeatherInfo = () => {
 							/>
 							<Button variant="primary" type="submit">
 								Get City Info
+							</Button>
+							<Button variant="secondary" onClick={handleForecastClick}>
+								Get Forecast
 							</Button>
 						</Form.Group>
 					</Form>
