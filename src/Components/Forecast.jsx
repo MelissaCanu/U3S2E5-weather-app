@@ -4,6 +4,7 @@ const Forecast = ({ city }) => {
 	const [forecastData, setForecastData] = useState(null);
 
 	useEffect(() => {
+		console.log("City:", city);
 		const getForecastData = async () => {
 			try {
 				const apiKey = "14bce469fb02143aaed162ec1858afea";
