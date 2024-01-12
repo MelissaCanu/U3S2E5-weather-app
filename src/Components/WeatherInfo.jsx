@@ -99,13 +99,13 @@ const WeatherInfo = () => {
 								className="mr-sm-2"
 							/>
 							<Button variant="primary" type="submit">
-								Get City Info
+								Get Today's Forecast!
 							</Button>
 							<Button
 								variant="secondary"
 								onClick={() => handleForecastClick(cityName)}
 							>
-								Get Forecast
+								Get 5-Day Forecast!
 							</Button>
 						</Form.Group>
 					</Form>
