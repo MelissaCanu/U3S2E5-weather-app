@@ -2,14 +2,14 @@ import React, { useState } from "react";
 import { Button, Form, FormControl } from "react-bootstrap";
 
 const WeatherInfo = () => {
-	const [cityId, setCityId] = useState("");
+	const [cityName, setCityName] = useState("");
 	const [cityInfo, setCityInfo] = useState(null);
 
 	const getCityInfo = async () => {
 		try {
 			const apiKey = "14bce469fb02143aaed162ec1858afea";
 			const resp = await fetch(
-				`https://api.openweathermap.org/data/2.5/weather?id=${cityId}&appid=${apiKey}`
+				`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}`
 			);
 
 			if (!resp.ok) {
@@ -30,12 +30,12 @@ const WeatherInfo = () => {
 
 	return (
 		<div>
-			<Form inline onSubmit={handleSubmit}>
+			<Form onSubmit={handleSubmit}>
 				<FormControl
 					type="text"
-					placeholder="Enter city ID"
-					value={cityId}
-					onChange={(e) => setCityId(e.target.value)}
+					placeholder="Enter city name"
+					value={cityName}
+					onChange={(e) => setCityName(e.target.value)}
 					className="mr-sm-2"
 				/>
 				<Button variant="primary" type="submit">
