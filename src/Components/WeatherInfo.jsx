@@ -1,17 +1,35 @@
 import React, { useState, useEffect } from "react";
-import {
-	Button,
-	Form,
-	FormControl,
-	Card,
-	Container,
-	Row,
-	Col,
-} from "react-bootstrap";
+import { Button, Form, FormControl, Card, Container } from "react-bootstrap";
 
 const WeatherInfo = () => {
 	const [cityName, setCityName] = useState("");
 	const [cityInfo, setCityInfo] = useState(null);
+
+	useEffect(() => {
+		if (cityInfo) {
+			backgroundChange(cityInfo.weather[0].main);
+		}
+	}, [cityInfo]);
+
+	const backgroundChange = (weather) => {
+		const card =
+			document.getElementById("weatherCard"); /*  aggiungo id alla card */
+		if (card) {
+			if (weather === "Rain") {
+				card.style.backgroundImage =
+					"url(https://media2.giphy.com/media/GuEyvLPXMLhT2/giphy.gif?cid=ecf05e47vjz30omav5v7vqfp6sf9z2ug9eozqqbud2t6nq4x&ep=v1_gifs_search&rid=giphy.gif&ct=g)";
+			} else if (weather === "Clouds") {
+				card.style.backgroundImage =
+					"url(https://media1.giphy.com/media/SWlbqGfPURqORorgyu/giphy.gif?cid=ecf05e47pgdkurvu8xslh41sa3wfg0erjq0bor2wwznknjte&ep=v1_gifs_search&rid=giphy.gif&ct=g)";
+			} else if (weather === "Clear") {
+				card.style.backgroundImage =
+					"url(https://media3.giphy.com/media/0tLvvglXfGOITSFJSU/giphy.gif?cid=ecf05e475gvk4bsx52s0brmynsecm8cenwcxnpt7kjreh09s&ep=v1_gifs_search&rid=giphy.gif&ct=g)";
+			} else {
+				card.style.backgroundImage =
+					"url(https://media0.giphy.com/media/jsm7XMcyeTFJE4vHzO/giphy.gif?cid=ecf05e47yqu35ygxrjxkoxzmymor7l5nko9me39vb7eefxst&ep=v1_gifs_search&rid=giphy.gif&ct=g)";
+			}
+		}
+	};
 
 	const getCityInfo = async () => {
 		try {
@@ -37,16 +55,24 @@ const WeatherInfo = () => {
 	};
 
 	return (
-		<Container className="vh-100 d-flex align-items-center justify-content-center">
+		<div
+			className="vh-100 d-flex align-items-center justify-content-center"
+			style={{ display: "flex", flexDirection: "column", alignItems: "center" }}
+		>
 			<Card
+				id="weatherCard"
+				className="weather-card"
 				style={{
 					width: "18rem",
 					backgroundColor: "#87CEEB",
 					border: "none",
 					boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
+					display: "flex",
+					flexDirection: "column",
+					alignItems: "center",
 				}}
 			>
-				<Card.Body>
+				<Card.Body className="card-background">
 					<Form onSubmit={handleSubmit}>
 						<Form.Group>
 							<FormControl
@@ -70,6 +96,7 @@ const WeatherInfo = () => {
 									backgroundColor: "rgba(255, 255, 255, 0.8)",
 									border: "none",
 									boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)",
+									width: "100%",
 								}}
 							>
 								<Card.Body>
@@ -87,7 +114,7 @@ const WeatherInfo = () => {
 					)}
 				</Card.Body>
 			</Card>
-		</Container>
+		</div>
 	);
 };
 
